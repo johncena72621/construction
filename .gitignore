@@ -1,0 +1,19 @@
+# Node / React Native
+node_modules/
+.expo/
+dist/
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Python / Backend
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+backend/buildpro.db
+
+# OS / Editor
+.DS_Store
+.vscode/
+*.suo
