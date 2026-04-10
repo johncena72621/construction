@@ -46,6 +46,7 @@
   "devDependencies": {
     "@types/react": "~19.2.10",
     "@types/react-native": "^0.72.8",
+    "react-native-worklets-core": "^1.6.3",
     "typescript": "~5.9.2"
   },
   "private": true
