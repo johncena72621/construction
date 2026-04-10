@@ -4,16 +4,20 @@
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "eas-build-pre-install": "rm -rf package-lock.json || true",
+    "eas-build-post-install": "npx expo install --fix"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
     "@react-native-async-storage/async-storage": "^3.0.2",
+    "@react-native-community/netinfo": "11.5.2",
     "@react-navigation/bottom-tabs": "^7.15.9",
     "@react-navigation/native": "^7.2.2",
     "@react-navigation/native-stack": "^7.14.10",
+    "axios": "^1.15.0",
     "expo-asset": "^55.0.12",
     "expo-camera": "^16.1.6",
     "expo-clipboard": "^7.1.5",
@@ -35,12 +39,12 @@
     "react-native-safe-area-context": "^5.7.0",
     "react-native-screens": "^4.24.0",
     "react-native-svg": "^15.15.4",
-    "react-native-web": "^0.21.0"
+    "react-native-web": "^0.21.0",
+    "expo": "~55.0.13"
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
     "@types/react-native": "^0.72.8",
-    "expo": "^55.0.13",
     "typescript": "~5.9.2"
   },
   "private": true

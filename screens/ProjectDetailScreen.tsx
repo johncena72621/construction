@@ -71,7 +71,7 @@ export default function PDetail({ route, navigation }: any) {
       supplier: delF.supplier.trim(), quantity: parseFloat(delF.quantity) || 0,
       unit: delF.unit || 'Units', expectedDate: delF.expectedDate || today(),
       status: 'expected', geoAddress: delF.geoAddress.trim(),
-      projectId: P.id, createdAt: new Date().toISOString(),
+      projectId: P.id, createdAt: new Date().toISOString(), driverName: '', driverPhone: '', vehicleNumber: '', pickupAddress: '', destAddress: '', trackingPoints: []
     };
     await dStore.add(d);
     setDelF({ materialName: '', supplier: '', quantity: '', unit: 'Units', expectedDate: '', geoAddress: '' });

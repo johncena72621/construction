@@ -68,7 +68,7 @@ export default function Settings({ onReset }: { onReset?: () => void }) {
       const data = { exportDate: new Date().toISOString(), company: co, projects: allData.p, materials: allData.m, transactions: allData.t, invoices: allData.i, workers: allData.w, deliveries: allData.d };
       const json = JSON.stringify(data, null, 2);
       
-      const fileUri = `${FileSystem.documentDirectory || FileSystem.cacheDirectory}BuildPro_Export_${new Date().toISOString().split('T')[0]}.json`;
+      const fileUri = `${(FileSystem as any).documentDirectory || (FileSystem as any).cacheDirectory}BuildPro_Export_${new Date().toISOString().split('T')[0]}.json`;
       await FileSystem.writeAsStringAsync(fileUri, json);
       if (await Sharing.isAvailableAsync()) {
         await Sharing.shareAsync(fileUri);
@@ -124,8 +124,8 @@ export default function Settings({ onReset }: { onReset?: () => void }) {
       }
       
       const filename = `BuildPro_${type}_${new Date().toISOString().split('T')[0]}.csv`;
-      const fileUri = `${FileSystem.documentDirectory || FileSystem.cacheDirectory}${filename}`;
-      await FileSystem.writeAsStringAsync(fileUri, csv);
+      const fileUri = `${(FileSystem as any).documentDirectory || (FileSystem as any).cacheDirectory}${filename}`;
+      await (FileSystem as any).writeAsStringAsync(fileUri, csv);
       
       if (await Sharing.isAvailableAsync()) {
         await Sharing.shareAsync(fileUri, { UTI: 'public.comma-separated-values-text', mimeType: 'text/csv' });
@@ -154,8 +154,8 @@ export default function Settings({ onReset }: { onReset?: () => void }) {
       full += toCSV(['Material', 'Supplier', 'Qty', 'Status'], allData.d.map(d => [d.materialName, d.supplier, d.quantity, d.status]));
 
       const filename = `BuildPro_FullReport_${new Date().toISOString().split('T')[0]}.txt`;
-      const fileUri = `${FileSystem.documentDirectory || FileSystem.cacheDirectory}${filename}`;
-      await FileSystem.writeAsStringAsync(fileUri, full);
+      const fileUri = `${(FileSystem as any).documentDirectory || (FileSystem as any).cacheDirectory}${filename}`;
+      await (FileSystem as any).writeAsStringAsync(fileUri, full);
       
       if (await Sharing.isAvailableAsync()) {
         await Sharing.shareAsync(fileUri, { mimeType: 'text/plain' });

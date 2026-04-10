@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import { C, S, R, F, SH } from '../lib/theme';
-import { fmt, fmtD, uid, td } from '../lib/helpers';
+import { fmt, fmtD, uid } from '../lib/helpers';
 import { dStore, pStore } from '../lib/storage';
 import { Delivery, TrackingPoint, Project } from '../lib/types';
 import Empty from '../components/EmptyState';
@@ -347,7 +347,7 @@ export default function DeliveriesScreen() {
       )}
 
       <FlatList data={filtered} keyExtractor={i => i.id} renderItem={renderDelivery} contentContainerStyle={st.list} showsVerticalScrollIndicator={false}
-        ListEmptyComponent={<Empty icon="car-outline" title="No Deliveries" message="Track material deliveries with live GPS." actionLabel="Add Delivery" onAction={() => setShowAdd(true)} />} />
+        ListEmptyComponent={<Empty icon="car-outline" title="No Deliveries" msg="Track material deliveries with live GPS." btn="Add Delivery" onBtn={() => setShowAdd(true)} />} />
 
       {/* ━━━ DETAIL MODAL with LIVE TRACKING ━━━ */}
       <Modal visible={showDetail} animationType="slide" transparent>
