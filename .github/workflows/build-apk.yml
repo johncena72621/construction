@@ -26,11 +26,6 @@ jobs:
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
-      - name: Authenticate with Expo/EAS
-        env:
-          EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
-        run: eas login --token $EAS_TOKEN
-
       - name: Build Android APK
         env:
           EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
